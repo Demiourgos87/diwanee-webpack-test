@@ -1,0 +1,6 @@
+.b-intro {
+    @include breakpoint(overPhone) {
+        display: flex;
+        flex-direction: row;
+    }
+}
