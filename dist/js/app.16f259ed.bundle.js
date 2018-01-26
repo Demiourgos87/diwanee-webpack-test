@@ -10339,11 +10339,11 @@ window.app = {};
 var css = __webpack_require__(2);
 
 // ----- Require modules here
-var testLog = __webpack_require__(3);
+var navigation = __webpack_require__(3);
 
 // ----- Call modules here
 $(document).ready(function () {
-    testLog();
+    navigation();
 });
 
 /***/ }),
@@ -10359,12 +10359,20 @@ $(document).ready(function () {
 "use strict";
 
 
-// ----- Typical module
+// ----- Main navigation
 
 var $ = __webpack_require__(0);
 
 module.exports = function () {
-    console.log('Test log: app ready');
+    var $burgerTrigger = $('.b-header__burger'),
+        $mobileNav = $('.c-navigation__mob'),
+        windowWidth = $(window).outerWidth();
+
+    if (windowWidth < 1025) {
+        $burgerTrigger.on('click', function () {
+            $mobileNav.slideToggle(300);
+        });
+    }
 };
 
 /***/ })

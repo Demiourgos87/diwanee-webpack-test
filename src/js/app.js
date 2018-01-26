@@ -7,9 +7,9 @@ window.app = {};
 var css = require('../scss/style.scss');
 
 // ----- Require modules here
-var testLog = require('./test/test.js');
+var navigation = require('./navigation/navigation.js');
 
 // ----- Call modules here
 $(document).ready(function() {
-    testLog();
+    navigation();
 });

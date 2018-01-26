@@ -1,0 +1,41 @@
+.c-nav-social {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    @include breakpoint(overPhone) {
+        width: 55%;
+        margin: auto;
+    }
+
+    &__message {
+        font-family: $ff-main-regular;
+        font-size: 1.6rem;
+        letter-spacing: 0.21em;
+        color: $color-silver;
+        text-transform: uppercase;
+        align-self: flex-end;
+    }
+
+    &__follow {
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-start;
+        margin-right: 0.7rem;
+        width: 24%;
+        @include breakpoint(overPhone) {
+            width: 15%;
+        }
+
+        & img {
+            align-self: center;
+
+            &.twitter {
+                width: 2.4rem;
+            }
+
+            &.fb {
+                width: 1.4rem;
+            }
+        }
+    }
+}

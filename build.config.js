@@ -61,7 +61,8 @@ module.exports = {
                 use: {
                     loader: 'html-loader',
                     options: {
-                        minimize: false
+                        minimize: false,
+                        attrs: ['img:src', 'source:srcset', 'img:srcset']
                     }
                 }
             }
@@ -71,7 +72,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist/*']),
         new ExtractTextPlugin(cssOutput),
         new HtmlWebpackPlugin({
-            title: 'Webpack App',
+            title: 'Diwanee - Serbia',
             filename: 'index.html',
             template: './src/index.html'
         })

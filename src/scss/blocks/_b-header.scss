@@ -1,3 +1,55 @@
 .b-header {
-    
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: $color-ecru-white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    @include breakpoint(overPhone) {
+        padding: 1.8rem 1.3rem;
+    }
+    @include breakpoint(desktop) {
+        padding: 2.8rem 22.5rem;
+    }
+
+    &__logo {
+        width: 14.8rem;
+        @include breakpoint(overPhone) {
+            width: 14.1rem;
+            margin-left: 3.7rem;
+        }
+        @include breakpoint(desktop) {
+            width: 16.4rem;
+        }
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    &__burger {
+        width: 3rem;
+        margin-right: 1rem;
+        margin-top: 1.7rem;
+        align-self: flex-start;
+        cursor: pointer;
+        @include breakpoint(desktop) {
+            display: none;
+        }
+
+        & span {
+            display: block;
+            height: 0.25rem;
+            margin-bottom: 0.75rem;
+            background: $color-black;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }

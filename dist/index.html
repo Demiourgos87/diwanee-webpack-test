@@ -2,19 +2,67 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Title</title>
+        <title><%= htmlWebpackPlugin.options.title %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="css/style.b696c844.css" rel="stylesheet"></head>
+    <link href="css/style.16f259ed.css" rel="stylesheet"></head>
     <body>
 
-        <header class="b-header"></header>
+        <header class="b-header">
+            <figure class="b-header__logo">
+                <img src="assets/img/logo.png" alt="Diwanee Serbia">
+            </figure>
+
+            <div class="b-header__burger">
+                <span class="b-header__burger-line"></span>
+                <span class="b-header__burger-line"></span>
+                <span class="b-header__burger-line"></span>
+            </div>
+
+            <nav class="c-navigation__desk">
+                <ul>
+                    <li><a href="#">o nama</a></li>
+                    <li><a href="#">poslovi</a></li>
+                    <li><a href="#">kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <nav class="c-navigation__mob">
+            <ul>
+                <li><a href="#">o nama</a></li>
+                <li><a href="#">poslovi</a></li>
+                <li><a href="#">kontakt</a></li>
+            </ul>
+
+            <div class="c-nav-social">
+                <span class="c-nav-social__message">pratite nas</span>
+                <div class="c-nav-social__follow">
+                    <img class="twitter" src="assets/img/twitter-small.png" alt="">
+                    <img class="fb" src="assets/img/fb-small.png" alt="">
+                </div>
+            </div>
+        </nav>
 
         <main id="main">
-            <div class="b-test">
-                <p class="c-test">Content goes here</p>
-            </div>
+            <section class="b-hero">
+                <figure class="b-hero__image">
+                    <picture>
+                        <source srcset="assets/img/hero-desk.png" alt="alt" media="(min-width: 1025px)">
+                        <source srcset="assets/img/hero-tab.png" alt="alt" media="(min-width: 768px)">
+                        <img srcset="assets/img/hero-mob.png" alt="alt">
+                    </picture>
+                </figure>
+
+                <div class="b-hero__content">
+                    <h1 class="b-hero__content__title">diwanee serbia</h1>
+                    <p class="b-hero__content__intro mob">digital media agency</p>
+                    <p class="b-hero__content__intro overMob">Digital Media Agency always looking for motivated,
+                        multi-talented, and organized people to join our diverse team.
+                    </p>
+                </div>
+            </section>
         </main>
 
         <footer class="b-footer"></footer>
-    <script type="text/javascript" src="js/app.b696c844.bundle.js"></script></body>
+    <script type="text/javascript" src="js/app.16f259ed.bundle.js"></script></body>
 </html>

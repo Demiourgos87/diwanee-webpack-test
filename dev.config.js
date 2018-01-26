@@ -39,8 +39,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'assets/fonts/',
-                        emitFile: false
+                        outputPath: 'assets/fonts/'
                     }
                 }
             },
@@ -52,8 +51,17 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'assets/img/',
-                        emitFile: false
+                        outputPath: 'assets/img/'
+                    }
+                }
+            },
+            {
+                test: /\.html$/,
+                use: {
+                    loader: 'html-loader',
+                    options: {
+                        minimize: false,
+                        attrs: ['img:src', 'source:srcset', 'img:srcset']
                     }
                 }
             }
@@ -74,7 +82,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackHarddiskPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Webpack App',
+            title: 'Diwanee Serbia',
             filename: 'index.html',
             template: './src/index.html',
             alwaysWriteToDisk: true
