@@ -1,0 +1,24 @@
+.b-jobs {
+    padding: 8.9rem 0;
+    @include breakpoint(overPhone) {
+        padding: 15.7rem 0;
+    }
+    @include breakpoint(desktop) {
+        padding: 13.7rem 0;
+    }
+
+    &__desc {
+        font-family: $ff-main-light;
+        @include font-size(20px,24px,24px);
+        @include line-height(30px,34px,34px);
+        color: $color-cod-gray;
+        text-align: center;
+        @include breakpoint(overPhone) {
+            width: 73%;
+            margin: auto;
+        }
+        @include breakpoint(desktop) {
+            width: 52%;
+        }
+    }
+}

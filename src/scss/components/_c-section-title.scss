@@ -1,0 +1,40 @@
+.c-section-title {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 6.8rem;
+    @include breakpoint(overPhone) {
+        margin-bottom: 8.9rem;
+    }
+    @include breakpoint(desktop) {
+        margin-bottom: 9.7rem;
+    }
+
+    & h4 {
+        @include font-size(14px,14px,14px);
+        letter-spacing: calcLS(150);
+        color: $color-dusty-gray;
+        margin-bottom: 1.7rem;
+        @include breakpoint(overPhone) {
+            margin-bottom: 3.7rem;
+        }
+    }
+
+    & h2 {
+        @include font-size(40px,50px,50px);
+        color: $color-cod-gray;
+        position: relative;
+
+        &::after {
+            display: block;
+            content: '';
+            width: 5.5rem;
+            height: 0.2rem;
+            background: $color-crimson;
+            @include absolute(center-horizontal);
+            bottom: -3.4rem;
+            @include breakpoint(overPhone) {
+                bottom: -4.1rem;
+            }
+        }
+    }
+}
