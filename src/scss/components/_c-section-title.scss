@@ -9,6 +9,17 @@
         margin-bottom: 9.7rem;
     }
 
+    &--wrap {
+        margin-bottom: 10.4rem;
+        padding: 0 2rem;
+        @include breakpoint(overPhone) {
+            margin-bottom: 5.1rem;
+        }
+        @include breakpoint(desktop) {
+            margin-bottom: 7.6rem;
+        }
+    }
+
     & h4 {
         @include font-size(14px,14px,14px);
         letter-spacing: calcLS(150);

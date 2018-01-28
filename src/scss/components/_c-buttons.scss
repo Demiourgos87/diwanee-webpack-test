@@ -1,4 +1,11 @@
 // ----- Buttons
 .c-btn {
-
+    background: transparent;
+    border: 2px solid $color-cod-gray;
+    color: $color-cod-gray;
+    padding: 1.3rem 3.7rem;
+    text-transform: uppercase;
+    font-family: $ff-main-regular;
+    @include font-size(14px,14px,14px);
+    letter-spacing: calcLS(150);
 }

@@ -21,4 +21,101 @@
             width: 52%;
         }
     }
+
+    &--wrap {
+        width: 100%;
+        padding: 0;
+    }
+
+    &__job {
+        background: $color-pampas;
+        padding: 3rem 1.5rem;
+        @include breakpoint(overPhone) {
+            background: $color-white;
+            padding: 5.1rem 9.3rem;
+        }
+        @include breakpoint(desktop) {
+            padding: 5.1rem 30rem;
+        }
+
+        & .l {
+            @include breakpoint(overPhone) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        &--wrap {
+            @include breakpoint(overPhone) {
+                width: 57%;
+            }
+        }
+
+        &:nth-child(2n+0) {
+            background: $color-white;
+            @include breakpoint(overPhone) {
+                background: $color-cod-gray;
+            }
+
+            & .b-jobs__job__title, & .b-jobs__job__desc, & .b-jobs__job__tags span {
+                @include breakpoint(overPhone) {
+                    color: $color-white;
+                }
+            }
+
+            & .c-btn {
+                @include breakpoint(overPhone) {
+                    border-color: $color-white;
+                    color: $color-white;
+                }
+            }
+        }
+
+        &__title {
+            @include font-size(18px,20px,20px);
+            font-family: $ff-main-medium;
+            color: $color-cod-gray;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            @include breakpoint(overPhone) {
+                margin-bottom: 1.8rem;
+            }
+        }
+
+        &__desc {
+            font-family: $ff-main-light;
+            @include font-size(15px,18px,18px);
+            @include line-height(20px,28px,28px);
+            letter-spacing: calcLS(5);
+            color: $color-cod-gray;
+            margin-bottom: 1.1rem;
+            @include breakpoint(overPhone) {
+                letter-spacing: calcLS(10);
+                margin-bottom: 2.4rem;
+            }
+        }
+
+        &__tags {
+            & span {
+                font-family: $ff-main-light;
+                @include font-size(14px,13px,13px);
+                display: inline-block;
+                color: $color-crimson;
+                margin-right: 0.6rem;
+                @include breakpoint(overPhone) {
+                    border: 1px solid $color-silver;
+                    padding: 1rem;
+                    text-align: center;
+                    min-width: 8.5rem;
+                }
+            }
+        }
+
+        & .c-btn {
+            @include breakpoint(phone) {
+                display: none;
+            }
+        }
+    }
 }
