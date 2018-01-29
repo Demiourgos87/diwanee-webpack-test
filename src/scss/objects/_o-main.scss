@@ -40,7 +40,7 @@
     }
 
     &__title {
-        @include font-size(20px,20px,20px);
+        @include font-size(20px,20px,18px);
         @include line-height(24px,24px,17px);
         letter-spacing: calcLS(200);
         color: $color-cod-gray;

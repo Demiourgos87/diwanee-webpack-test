@@ -2,10 +2,23 @@
 .c-btn {
     background: transparent;
     border: 2px solid $color-cod-gray;
+    outline: none;
     color: $color-cod-gray;
     padding: 1.3rem 3.7rem;
     text-transform: uppercase;
     font-family: $ff-main-regular;
     @include font-size(14px,14px,14px);
     letter-spacing: calcLS(150);
+    cursor: pointer;
+
+    &--gray {
+        background: $color-alto-light;
+        color: $color-mine-shaft;
+        border: none;
+        padding: 1.8rem 2.1rem;
+    }
+
+    &--wrap {
+        text-align: center;
+    }
 }

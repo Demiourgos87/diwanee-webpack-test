@@ -21,5 +21,5 @@ Install webpack cli globally on your machine ```yarn add webpack``` (on Linux, m
 
 ### Commands:
 * ```yarn run dev``` - Runs webpack-dev-server for development mode
-* ```yarn run build``` - Bundle source code with Webpack
+* ```yarn run build``` - Bundle source code
 * ```yarn run prod``` - Bundle source code for production, includes css and javascript minification
