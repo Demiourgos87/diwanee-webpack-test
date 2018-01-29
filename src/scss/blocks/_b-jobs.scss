@@ -1,10 +1,10 @@
 .b-jobs {
-    padding: 8.9rem 0;
+    padding: 8.9rem 0 7.9rem 0;
     @include breakpoint(overPhone) {
-        padding: 15.7rem 0;
+        padding: 15.7rem 0 14rem 0;
     }
     @include breakpoint(desktop) {
-        padding: 13.7rem 0;
+        padding: 13.7rem 0 14.5rem 0;
     }
 
     &__desc {

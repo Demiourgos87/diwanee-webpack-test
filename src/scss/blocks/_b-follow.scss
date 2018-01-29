@@ -1,0 +1,42 @@
+.b-follow {
+    padding: 8rem 2rem 7rem 2rem;
+    @include breakpoint(overPhone) {
+        padding: 9.5rem 2rem 13.3rem 2rem;
+    }
+    @include breakpoint(desktop) {
+        padding: 9.5rem 2rem 10.4rem 2rem;
+    }
+
+    & h4 {
+        @include font-size(14px,14px,14px);
+        letter-spacing: calcLS(150);
+        color: $color-dusty-gray;
+        text-transform: uppercase;
+        text-align: center;
+        width: 70%;
+        margin: auto;
+        margin-bottom: 2.9rem;
+        @include breakpoint(overPhone) {
+            margin-bottom: 1.9rem;
+        }
+    }
+
+    &__items {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        & a {
+            margin-right: 0.6rem;
+            &:last-child {
+                margin-right: 0;
+            }
+
+            & img {
+                width: 7.3rem;
+            }
+        }
+
+    }
+}

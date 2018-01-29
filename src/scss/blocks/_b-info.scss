@@ -1,0 +1,56 @@
+.b-info {
+    background: $color-alabaster;
+    padding: 3.9rem 1.5rem 6.2rem 2.5rem;
+    @include breakpoint(overPhone) {
+        padding: 9.1rem 8rem 13rem 10rem;
+    }
+    @include breakpoint(desktop) {
+        padding: 9.3rem 0 13.4rem 0;
+    }
+
+    & .c-section-title {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 8.2rem;
+        @include breakpoint(overPhone) {
+            margin-bottom: 10.4rem;
+        }
+
+        & h4 {
+            margin-bottom: 3.3rem;
+            @include breakpoint(overPhone) {
+                margin-bottom: 4.3rem;
+            }
+        }
+
+        & h2 {
+            &::after {
+                bottom: -4.1rem;
+                @include breakpoint(overPhone) {
+                    bottom: -4.7rem;
+                }
+            }
+        }
+    }
+
+    &__desc {
+        @include breakpoint(desktop) {
+            margin: auto;
+            width: 57%;
+        }
+
+        & p {
+            font-family: $ff-main-light;
+            @include font-size(18px,18px,18px);
+            @include line-height(30px,28px,28px);
+            margin-bottom: 2.9rem;
+            @include breakpoint(overPhone) {
+                margin-bottom: 3.1rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
