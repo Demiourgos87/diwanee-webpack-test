@@ -1,4 +1,5 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin'),
+var webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     path = require('path');
@@ -10,7 +11,8 @@ var outputDir = 'dist/',
 
 module.exports = {
     entry: {
-        app: './src/js/app.js'
+        app: './src/js/app.js',
+        vendor: ['jquery']
     },
     output: {
         path: path.resolve(__dirname, outputDir),
@@ -69,6 +71,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
         new CleanWebpackPlugin(['dist/*']),
         new ExtractTextPlugin(cssOutput),
         new HtmlWebpackPlugin({
