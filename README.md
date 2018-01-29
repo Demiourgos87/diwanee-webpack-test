@@ -23,3 +23,5 @@ Install webpack cli globally on your machine ```yarn add webpack``` (on Linux, m
 * ```yarn run dev``` - Runs webpack-dev-server for development mode
 * ```yarn run build``` - Bundle source code
 * ```yarn run prod``` - Bundle source code for production, includes css and javascript minification
+
+Check the live page [here](https://demiourgos87.github.io/diwanee-webpack-test/dist)
