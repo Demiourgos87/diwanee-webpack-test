@@ -1,3 +1,129 @@
 .b-footer {
-    
+    background: $color-cod-gray;
+    padding-top: 8.4rem;
+    @include breakpoint(overPhone) {
+        padding-top: 13.8rem;
+    }
+    @include breakpoint(desktop) {
+        padding-top: 13.6rem;
+    }
+
+    & .l {
+        padding: 0 2.9rem;
+        @include breakpoint(overPhone) {
+            padding: 0 9.5rem;
+        }
+        @include breakpoint(desktop) {
+            padding: 0 25.5rem;
+        }
+    }
+
+    &__columns {
+        margin-bottom: 7.1rem;
+
+        @include breakpoint(overPhone) {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10.2rem;
+        }
+        @include breakpoint(desktop) {
+            margin-bottom: 9.8rem;
+        }
+    }
+
+    &__column {
+        margin-bottom: 5.1rem;
+        @include breakpoint(overPhone) {
+            margin-bottom: 0;
+            margin-right: 3rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            @include breakpoint(overPhone) {
+                margin-right: 0;
+            }
+        }
+
+        &__heading {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            font-size: 1.6rem;
+            color: $color-alabaster;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            @include breakpoint(overPhone) {
+                margin-bottom: 2.8rem;
+            }
+
+            & img {
+                width: 1.7rem;
+                margin-right: 1.1rem;
+            }
+        }
+
+        & p {
+            @include font-size(16px,15px,15px);
+            color: $color-dove-gray;
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+            @include breakpoint(overPhone) {
+                margin-bottom: 1rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    & .c-social {
+        padding: 0;
+        padding-left: 0.5rem;
+        margin-bottom: 3rem;
+        @include breakpoint(overPhone) {
+            margin: 0;
+            width: 24%;
+        }
+
+        & img.twitter, & img.linkedin {
+            width: 2.8rem;
+            @include breakpoint(overPhone) {
+                width: 2.2rem;
+            }
+        }
+
+        & img.twitter {
+            align-self: flex-end;
+        }
+
+        &__follow {
+            width: 34.5%;
+        }
+
+        &__message {
+            text-transform: none;
+            letter-spacing: calcLS(10);
+            @include font-size(14px,14px,14px);
+            color: $color-dove-gray;
+            align-self: center;
+
+            & a {
+                color: inherit;
+            }
+        }
+
+        &.phone {
+            @include breakpoint(overPhone) {
+                display: none;
+            }
+        }
+
+        &.overPhone {
+            @include breakpoint(phone) {
+                display: none;
+            }
+        }
+    }
 }
