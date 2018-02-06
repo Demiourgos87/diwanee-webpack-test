@@ -1,8 +1,8 @@
 # Diwanee test page with webpack
 
 ## Usage
+Install webpack cli globally on your machine ```npm instal -g webpack``` (on Linux, may require ```sudo```)  
 Install **yarn:** [Installation instructions](https://yarnpkg.com/en/docs/install)  
-Install webpack cli globally on your machine ```yarn add webpack``` (on Linux, may require ```sudo```)
 
 ## Development setup:
 * Clone the repository ```git clone <repo url>```
@@ -23,5 +23,12 @@ Install webpack cli globally on your machine ```yarn add webpack``` (on Linux, m
 * ```yarn run dev``` - Runs webpack-dev-server for development mode
 * ```yarn run build``` - Bundle source code
 * ```yarn run prod``` - Bundle source code for production, includes css and javascript minification
+
+## Bundle analysis
+A tool for bundle analysis, provides useful information about the state of the bundle, errors, warnings, module interconnectivity, etc.
+
+1. Generate webpack stats file, from project root enter ```webpack --profile --json --config=config/build.config.js > stats.json```
+2. Go to: [http://webpack.github.io/analyse/](http://webpack.github.io/analyse/)
+3. Upload the generated stats.json file
 
 Check the live page [here](https://demiourgos87.github.io/diwanee-webpack-test/dist)
