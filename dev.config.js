@@ -1,16 +1,21 @@
 var webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     WebpackBuildNotifierPlugin = require('webpack-build-notifier'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin'),
     path = require('path');
+
+var outputDir = 'dist/',
+    cssOutput = 'css/style.css',
+    jsOutput = 'js/master.bundle.js';
 
 module.exports = {
     entry: {
         app: './src/js/app.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        path: path.resolve(__dirname, outputDir),
+        filename: jsOutput
     },
     devtool: 'source-map',
     module: {
@@ -24,12 +29,21 @@ module.exports = {
             },
             // ----- SASS compiling
             {
-                test: /\.scss$/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader', options: { sourceMap: true } },
-                    { loader: 'sass-loader', options: { sourceMap: true } }
-                ]
+                test: /\.scss$/, use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        { loader: "css-loader", options: { sourceMap: true } },
+                        { loader: "postcss-loader", options: { sourceMap: true } },
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                sourceMap: true,
+                                outputStyle: "expanded",
+                                sourceMapContents: true
+                            }
+                        }
+                    ]
+                }))
             },
             // ----- Font loading
             {
@@ -69,9 +83,8 @@ module.exports = {
     },
     // ----- Webpack dev server options
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, outputDir),
         watchContentBase: true,
-        hot: true,
         compress: true,
         port: 3300,
         stats: 'errors-only',
@@ -80,6 +93,10 @@ module.exports = {
     plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin({
+            filename: cssOutput,
+            allChunks: true
+        }),
         new HtmlWebpackHarddiskPlugin(),
         new HtmlWebpackPlugin({
             title: 'Diwanee Serbia',
