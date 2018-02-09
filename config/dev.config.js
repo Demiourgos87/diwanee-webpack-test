@@ -5,23 +5,20 @@ var webpack = require('webpack'),
     HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin'),
     path = require('path');
 
-var outputDir = 'dist/',
-    cssOutput = 'css/style.css',
-    jsOutput = 'js/master.bundle.js';
-
 module.exports = {
     entry: {
         app: './src/js/app.js'
     },
     output: {
-        path: path.resolve(__dirname, outputDir),
-        filename: jsOutput
+        path: path.resolve(__dirname, '../dist/'),
+        filename: '[name].bundle.js'
     },
     devtool: 'source-map',
     module: {
         rules: [
             // ----- JS ES2015 compiling
-            { test: /\.js$/, exclude: /(node_modules|bower_components)/,
+            {
+                test: /\.js$/, exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
                     options: { presets: ['babel-preset-env'] }
@@ -29,7 +26,8 @@ module.exports = {
             },
             // ----- SASS compiling
             {
-                test: /\.scss$/, use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                test: /\.scss$/,
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
                         { loader: "css-loader", options: { sourceMap: true } },
@@ -83,18 +81,23 @@ module.exports = {
     },
     // ----- Webpack dev server options
     devServer: {
-        contentBase: path.join(__dirname, outputDir),
+        contentBase: path.join(__dirname, '../dist'),
         watchContentBase: true,
+        hot: true,
         compress: true,
         port: 3300,
-        stats: 'errors-only',
+        stats: {
+            all: false,
+            errors: true,
+            warnings: true
+        },
         open: true
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin({
-            filename: cssOutput,
+            filename: 'css/style.css',
             allChunks: true
         }),
         new HtmlWebpackHarddiskPlugin(),

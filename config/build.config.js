@@ -5,14 +5,13 @@ var webpack = require('webpack'),
     path = require('path');
 
 // ----- Output file paths
-var outputDir = 'dist/',
+var outputDir = '../dist/',
     cssOutput = 'css/style.[chunkhash:8].css',
     jsOutput = 'js/[name].[chunkhash:8].bundle.js';
 
 module.exports = {
     entry: {
-        app: './src/js/app.js',
-        vendor: ['jquery']
+        app: './src/js/app.js'
     },
     output: {
         path: path.resolve(__dirname, outputDir),
@@ -32,7 +31,18 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [ 'css-loader', 'postcss-loader', 'sass-loader'],
+                    use: [
+                        { loader: 'css-loader' },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                config: {
+                                    path: './config/postcss.config.js'
+                                }
+                            }
+                        },
+                        'sass-loader'
+                    ],
                     publicPath: '../'
                 })
             },
@@ -72,9 +82,27 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor',
+            minChunks(module) {
+                // any required modules inside node_modules are extracted to vendor
+                return (
+                    module.resource &&
+                    /\.js$/.test(module.resource) &&
+                    module.resource.indexOf(
+                        path.join(__dirname, '../node_modules')
+                    ) === 0
+                )
+            }
         }),
-        new CleanWebpackPlugin(['dist/*']),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'app',
+            async: 'vendor-async',
+            children: true,
+            minChunks: 3
+        }),
+        new CleanWebpackPlugin(['dist/*'], {
+            root: path.resolve(__dirname + '/../')
+        }),
         new ExtractTextPlugin(cssOutput),
         new HtmlWebpackPlugin({
             title: 'Diwanee - Serbia',

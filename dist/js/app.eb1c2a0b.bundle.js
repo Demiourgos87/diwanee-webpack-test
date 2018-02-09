@@ -15,7 +15,7 @@ window.app = {};
 var css = __webpack_require__(2);
 
 // ----- Require modules here
-var navigation = __webpack_require__(3);
+var navigation = __webpack_require__(4);
 
 // ----- Call modules here
 $(document).ready(function () {
@@ -29,7 +29,8 @@ $(document).ready(function () {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
