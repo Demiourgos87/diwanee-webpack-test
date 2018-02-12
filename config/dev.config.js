@@ -2,7 +2,7 @@ var webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     WebpackBuildNotifierPlugin = require('webpack-build-notifier'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
-    HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin'),
+    // HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin'),
     path = require('path');
 
 module.exports = {
@@ -102,18 +102,18 @@ module.exports = {
             filename: 'css/style.css',
             allChunks: true
         }),
-        new HtmlWebpackHarddiskPlugin(),
+        // new HtmlWebpackHarddiskPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
             excludeChunks: ['contact'],
-            alwaysWriteToDisk: true
+            // alwaysWriteToDisk: true
         }),
         new HtmlWebpackPlugin({
             filename: 'contact.html',
             template: './src/contact.html',
             excludeChunks: ['home'],
-            alwaysWriteToDisk: true
+            // alwaysWriteToDisk: true
         }),
         new WebpackBuildNotifierPlugin({
             title: "Webpack",

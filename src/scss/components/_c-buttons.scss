@@ -11,6 +11,7 @@
     letter-spacing: calcLS(150);
     @include breakpoint(desktop) {
         cursor: pointer;
+        transition: all .25s ease;
     }
 
     &--gray {
@@ -18,6 +19,13 @@
         color: $color-mine-shaft;
         border: none;
         padding: 1.8rem 2.1rem;
+
+        &:hover {
+            @include breakpoint(desktop) {
+                color: $color-alto-light;
+                background: $color-mine-shaft;
+            }
+        }
     }
 
     &--wrap {

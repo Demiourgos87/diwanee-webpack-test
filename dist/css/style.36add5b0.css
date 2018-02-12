@@ -585,12 +585,17 @@ a {
       font-size: 1.4rem; } }
   @media (min-width: 1025px) {
     .c-btn {
-      cursor: pointer; } }
+      cursor: pointer;
+      transition: all .25s ease; } }
   .c-btn--gray {
     background: #d7d7d7;
     color: #333333;
     border: none;
     padding: 1.8rem 2.1rem; }
+    @media (min-width: 1025px) {
+      .c-btn--gray:hover {
+        color: #d7d7d7;
+        background: #333333; } }
   .c-btn--wrap {
     text-align: center; }
 
@@ -788,6 +793,35 @@ a {
     @media (min-width: 1025px) {
       .c-copyright__text {
         font-size: 1.2rem; } }
+
+.c-form {
+  width: 100%; }
+  @media (min-width: 768px) {
+    .c-form {
+      width: 75%;
+      margin: auto; } }
+  @media (min-width: 1025px) {
+    .c-form {
+      width: 60%; } }
+  .c-form input, .c-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 1px solid #222222;
+    outline: none;
+    font-family: "Roboto-Light", Arial, sans-serif;
+    padding: 1rem; }
+    @media (max-width: 767px) {
+      .c-form input, .c-form textarea {
+        font-size: 1.6rem; } }
+    @media (min-width: 768px) {
+      .c-form input, .c-form textarea {
+        font-size: 2rem; } }
+    @media (min-width: 1025px) {
+      .c-form input, .c-form textarea {
+        font-size: 2.2rem; } }
+  .c-form textarea {
+    resize: none; }
 
 .o-main {
   width: 100%;
@@ -1412,3 +1446,26 @@ a {
         margin-right: 0; }
       .b-follow__items a img {
         width: 7.3rem; }
+
+.b-contact {
+  padding: 4rem 2.9rem 0 2.9rem; }
+  @media (min-width: 768px) {
+    .b-contact {
+      padding: 5rem 9rem 0 9rem; } }
+  @media (min-width: 1025px) {
+    .b-contact {
+      padding: 10rem 8rem 0 8rem; } }
+  .b-contact__heading {
+    margin-bottom: 4rem; }
+    @media (max-width: 767px) {
+      .b-contact__heading {
+        font-size: 3rem; } }
+    @media (min-width: 768px) {
+      .b-contact__heading {
+        font-size: 3.5rem; } }
+    @media (min-width: 1025px) {
+      .b-contact__heading {
+        font-size: 4rem; } }
+    @media (min-width: 768px) {
+      .b-contact__heading {
+        text-align: center; } }
