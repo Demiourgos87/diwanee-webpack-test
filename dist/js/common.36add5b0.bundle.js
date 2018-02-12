@@ -9,7 +9,6 @@ webpackJsonp([0],[
 // ----- Main app file
 
 var $ = __webpack_require__(0);
-window.app = {};
 
 // ----- Path to main SCSS file
 var css = __webpack_require__(2);

@@ -7,7 +7,9 @@ var webpack = require('webpack'),
 
 module.exports = {
     entry: {
-        app: './src/js/app.js'
+        common: './src/common.js',
+        home: './src/home.js',
+        contact: './src/contact.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist/'),
@@ -39,7 +41,8 @@ module.exports = {
                                 sourceMapContents: true
                             }
                         }
-                    ]
+                    ],
+                    publicPath: '../'
                 }))
             },
             // ----- Font loading
@@ -101,9 +104,15 @@ module.exports = {
         }),
         new HtmlWebpackHarddiskPlugin(),
         new HtmlWebpackPlugin({
-            title: 'Diwanee Serbia',
             filename: 'index.html',
             template: './src/index.html',
+            excludeChunks: ['contact'],
+            alwaysWriteToDisk: true
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'contact.html',
+            template: './src/contact.html',
+            excludeChunks: ['home'],
             alwaysWriteToDisk: true
         }),
         new WebpackBuildNotifierPlugin({

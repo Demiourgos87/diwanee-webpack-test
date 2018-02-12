@@ -11,7 +11,9 @@ var outputDir = '../dist/',
 
 module.exports = {
     entry: {
-        app: './src/js/app.js'
+        common: './src/common.js',
+        home: './src/home.js',
+        contact: './src/contact.js'
     },
     output: {
         path: path.resolve(__dirname, outputDir),
@@ -81,6 +83,10 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(['dist/*'], {
+            root: path.resolve(__dirname + '/../')
+        }),
+        new ExtractTextPlugin(cssOutput),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks(module) {
@@ -95,19 +101,26 @@ module.exports = {
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'app',
-            async: 'vendor-async',
+            name: 'common',
             children: true,
-            minChunks: 3
         }),
-        new CleanWebpackPlugin(['dist/*'], {
-            root: path.resolve(__dirname + '/../')
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'home',
+            children: true,
         }),
-        new ExtractTextPlugin(cssOutput),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'contact',
+            children: true,
+        }),
         new HtmlWebpackPlugin({
-            title: 'Diwanee - Serbia',
             filename: 'index.html',
-            template: './src/index.html'
-        })
+            template: './src/index.html',
+            excludeChunks: ['contact']
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'contact.html',
+            template: './src/contact.html',
+            excludeChunks: ['home']
+        }),
     ]
 };
