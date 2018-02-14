@@ -62,13 +62,21 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 exclude: /(node_modules|fonts)/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'assets/img/'
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'assets/img/'
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true,
+                        },
                     }
-                }
+                ]
             },
             {
                 test: /\.html$/,
@@ -115,12 +123,20 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
-            excludeChunks: ['contact']
+            excludeChunks: ['contact'],
+            minify: {
+                removeAttributeQuotes: true,
+                colalpseWhitespace: true
+            }
         }),
         new HtmlWebpackPlugin({
             filename: 'contact.html',
             template: './src/contact.html',
-            excludeChunks: ['home']
+            excludeChunks: ['home'],
+            minify: {
+                removeAttributeQuotes: true,
+                colalpseWhitespace: true
+            }
         }),
     ]
 };
