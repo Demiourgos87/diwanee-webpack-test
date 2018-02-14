@@ -126,7 +126,7 @@ module.exports = {
             excludeChunks: ['contact'],
             minify: {
                 removeAttributeQuotes: true,
-                colalpseWhitespace: true
+                collapseWhitespace: true
             }
         }),
         new HtmlWebpackPlugin({
@@ -135,7 +135,7 @@ module.exports = {
             excludeChunks: ['home'],
             minify: {
                 removeAttributeQuotes: true,
-                colalpseWhitespace: true
+                collapseWhitespace: true
             }
         }),
     ]
